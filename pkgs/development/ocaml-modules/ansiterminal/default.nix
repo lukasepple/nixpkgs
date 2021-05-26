@@ -13,11 +13,23 @@ stdenv.mkDerivation rec {
 
   buildInputs = [ ocaml findlib ocamlbuild ];
 
-  configurePhase = "ocaml setup.ml -configure --prefix $out";
+  configurePhase = ''
+    runHook preConfigure
+    ocaml setup.ml -configure --prefix $out
+    runHook postConfigure
+  '';
 
-  buildPhase = "ocaml setup.ml -build";
+  buildPhase = ''
+    runHook preBuild
+    ocaml setup.ml -build
+    runHook postBuild
+  '';
 
-  installPhase = "ocaml setup.ml -install";
+  installPhase = ''
+    runHook preInstall
+    ocaml setup.ml -install
+    runHook postInstall
+  '';
 
   createFindlibDestdir = true;
 
