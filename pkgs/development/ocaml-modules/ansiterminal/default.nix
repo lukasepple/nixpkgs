@@ -31,7 +31,9 @@ stdenv.mkDerivation rec {
     runHook postInstall
   '';
 
-  createFindlibDestdir = true;
+  preInstall = ''
+    mkdir -p "$OCAMLFIND_DESTDIR"
+  '';
 
   meta = with lib; {
     homepage = "https://github.com/Chris00/ANSITerminal";
