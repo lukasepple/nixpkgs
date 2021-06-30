@@ -33,6 +33,7 @@ in
   ### Deprecated aliases - for backward compatibility
 
 mapAliases ({
+  backports-entry-points-selectable = throw "backports-entry-points-selectable has been removed"; # added 2021-07-01
   blockdiagcontrib-cisco = throw "blockdiagcontrib-cisco is not compatible with blockdiag 2.0.0 and has been removed."; # Added 2020-11-29
   bugseverywhere = throw "bugseverywhere has been removed: Abandoned by upstream."; # Added 2019-11-27
   detox = throw "detox is no longer maintained, and was broken since may 2019"; # added 2020-07-04
